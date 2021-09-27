@@ -1,0 +1,56 @@
+Core Java:
+
+- Write Once Run Anywhere
+- Platform Independent
+- Platform - O/S + Hardware
+- Object Oriented Programming Language - OOPS
+
+Source Code (.java) --> Compiler --> Byte Code (Intermediate Code)(.class) --> Java Runtime Environment (Interpreter)
+
+--> Machine Code / Binary(2 - 0 or 1) Code
+
+Byte Code: Byte code is not a source code and not a machine code, it is only intermediate code
+
+
+JDK: Java Development Kit
+JRE: Java Runtime Enviornment
+
+Code:
+
+IDE: Integrated Development Environment
+
+1. Visual Studio Code
+2. Eclipse
+
+
+Creating First Program in Java:
+
+- Every java program start with class
+- Class name should start with Capital Letter
+- Class name should be same as File Name
+
+
+Java Code Compilation and Execution:
+
+- Compile: javac filename.java
+- Run: java classname/bytecode 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
