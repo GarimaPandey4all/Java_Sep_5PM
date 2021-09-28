@@ -1,0 +1,91 @@
+Core Java
+
+Java History:
+
+- Invented by James Gosling in 1991
+- Developed by Sun Microsystems
+- The old name of java is "Oak"
+- In 1995, first released publicly as java 1.0
+- Sun Microsystems sold java to oracle corporation in 2009.
+
+Code Explanation:
+
+Main Method:
+
+- main is a entry point of every java program
+- without main java will compile the code and convert it into byte code, but it can't execute the code
+or interpret the code.
+
+public - scope in java
+
+public: global, which is accessible for all from anywhere
+
+Why main is public?
+
+- JRE uses main
+- java command trigger the JRE
+- JRE load class in the memory
+- JRE is looking for main
+- JRE is outside from your directory/folder
+- Outside the folder/package things can access
+
+why main is Static?
+
+- Static things are loaded into memory when class is loaded
+
+why main is void?
+
+- main is void in nature
+- main is entry point so there is no need to return anything
+
+main arguments - String args[]
+
+- main has command line arguments
+- we can pass any number of arguments, that's why it is array ([])
+- [] - array - Array is a collection of similar types of data.
+- Array: It is used to store multiple values in a single variable.
+
+What is String?
+
+- String is a collection of characters
+- String internally is a char[]
+- String is a Predefined class in java as it is in capital letter
+
+What is System.out.println();
+
+- println(): print in new lin, println comes from out object
+- out: out is an predefined object, which belongs to PrintStream class
+- System: System is a predefined class used for input, output and error
+e.g: System.in, System.out, System.err
+
+println vs print:
+
+- println: print in new line
+- print: here cursor remains at the end of the text
+
+Can we overload main()?
+
+- Yes, we can overload main
+- when we execute the class, JVM (Java Virtual Machine) starts exexution 
+with public static void main(String args[])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
