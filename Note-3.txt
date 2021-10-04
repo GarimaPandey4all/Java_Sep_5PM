@@ -1,0 +1,60 @@
+Data Types:
+
+1 byte = 8 bits
+
+They are used to store integral only.
+
+byte - 1 byte
+short - 2 bytes
+int - 4 bytes
+long - 8 bytes
+
+Decimal/Floating Point Values
+float - 4 bytes
+double - 8 bytes
+
+Enter the age of student:
+
+byte - 1 byte = 8 bits
+1 bit +-
+7 bits number range
+Bit - Binary - 2 - 0 or 1
+
+signed data type
+-ve and +ve
+
+-2 ^ 7 to 2 ^ 7 -1
+-128 to 127 (0 to 127)
+
+Character values:
+
+char - 2 bytes
+
+- because java works on unicode (universal code)
+
+boolean - 1 byte/2byte/4byte - size depending upon o/s
+
+- true or false
+
+Data types:
+
+1. Value data types: start with small letter
+2. Reference/Address data types: start with capital letter
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
