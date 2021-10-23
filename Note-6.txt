@@ -1,0 +1,66 @@
+2 major types of programming:
+
+- Procedural Programming - Functions - Divide a problem into functions.
+- OOPS: (Object Oriented Programming Langauage) - Wrap all the variables and functions/methods into a single unit.
+
+Why OOPS?
+
+In C Programming:
+
+int x, y;
+
+add()
+{
+}
+
+sub()
+{
+}
+
+div()
+{
+}
+
+mul()
+{
+}
+
+sin()
+{
+double x;
+}
+
+class A{
+
+int x, y;
+
+add()
+{
+}
+
+sub()
+{
+}
+
+div()
+{
+}
+
+mul()
+{
+}
+
+}
+
+class B
+{
+sin()
+{
+double x;
+}
+}
+
+is Java has global variable?
+- No, because in java every program start with class, and class doesn't have global variable.
+
+
