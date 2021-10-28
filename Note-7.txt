@@ -1,0 +1,24 @@
+OOPS:
+
+- Provide a feature of data binding using classes.
+- So your class have your variable and your methods that never conflict with other developers.
+- So we can use for large and complex system and it fit for real world scenerios.
+
+Now in OOPS we can use same variable names, same method name in different classes.
+
+What is OOPS?
+
+- Divide a big problem into classes.
+
+OOPS features:
+
+1. Class , Object
+
+Object: real world entity
+
+Class: Collection of similar objects
+blueprint, category
+
+Class- Collection of Features/Characterics
+e.g: Human (Features Brain, Height etc)
+object- ram state brain sharp, 5 feet height
