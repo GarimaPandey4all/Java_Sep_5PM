@@ -1,0 +1,48 @@
+OOAD: Object Oriented Analysis and Design
+- OOAD provides SOLID Principle
+
+Issue: Duplicacy-Solution
+
+SOLID
+D - DRY (Don't Repeat Yourself)
+Copy Paste Alternative Create a function and call it.
+
+Issue: Security of the code (Data Security)
+
+Solution:
+
+- private member variables and public methods
+
+Encapsulation: Wrap all the variables and methods into a single unit.
+example: class
+
+Data Hiding - Good Encapsulation
+
+Data Hiding - make member variables private
+Good Encapsulation = Data Hiding + Encapsulation
+
+- Data members - By default scope is default
+
+private - with in the class
+default - (not keyword just concept) - scope with in the package / folder
+protected - with in the package but we can access also outside the package using inheritance
+public - access on any package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
