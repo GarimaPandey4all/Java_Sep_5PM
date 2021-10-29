@@ -1,0 +1,16 @@
+this keyword
+
+- it is used to store current's object address/reference
+
+Q: Need to initialize the member variable when object is construct.
+Ans: We need constructor for this.
+
+- constructor is a special type of function or a method
+- constructor is call when you create an object of a class.
+- So conctructor will initialize the member variable 
+- contructor name is same as class name
+- Constructor never return anything
+- It is called only once
+- One class have multiple constructors, so this thing  is called contructor overloading
+- Every class by default have default constructor
+- So if you create any other constructor the default one is killed
