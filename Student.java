@@ -9,12 +9,33 @@ public class Student {
 	private String course;
 	private double fees;
 	private String collegeName;
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+	public String getPhone() {
+		return phone;
+	}
+
+		//Parameterized Constructor
+	Student(int rollno, String name, String phone, String course, double fees)
+	{
+		//this(); // call to the default constructor
+		this.rollno = rollno;
+		this.name = name;
+		this.phone = phone;
+		this.course = course;
+		this.fees = fees;		
+	}
 	
 	//Default Constructor
 	Student()
 	{
+		this(1001, "Ram", "82748794879", "MCA", 10000.0); // call to the parameterized constructor
 		collegeName = "SRCC";
 	}
+	
 	
 //	r, n, p, c, f - local variables
 //	scope is with in the function
@@ -47,10 +68,15 @@ public class Student {
 
 	public static void main(String[] args) { // member function / method
 		// TODO Auto-generated method stub
+		Student ram = new Student(); // call to the default constructor
 		
-		Student ram = new Student(); // ram = reference variable
+		//Student ram = new Student(1001, "Ram", "82748794879", "MCA", 10000.0); // parameterized cons call 
+		// ram = reference variable
 		//ram.takeInput(1001, "Ram", "82748794879", "MCA", 10000.0);
+		
+		ram.setPhone("9834792387");
 		ram.print();
+		
 		
 		/*
 		System.out.println("Rollno: "+ram.rollno);

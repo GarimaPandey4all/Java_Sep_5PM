@@ -1,0 +1,5 @@
+solution: to use default and parameterized at same time
+
+When we need multiple constructor calls in a one single call.
+Ans: We need constructor chaining for this.
+this keyword also use for constructor chaining.
