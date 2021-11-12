@@ -1,0 +1,55 @@
+Class Relationship
+
+- Communicate b/w two classes
+
+1. IS-A Inheritance
+
+BMW is a Car
+Lion is an Animal
+Saving Account is a Account
+Home Loan is a Loan
+Vivek is a Human
+Mango is a Fruit
+Red is a Color
+
+2. HAS-A Inheritance
+
+BMW has a Driver
+Customer has a Order
+Customer has a Account
+Customer has a Dog
+Dog has a Collar
+Car has a Engine
+
+
+1. In Development
+One class one file
+
+- If your class is public so class name must be same as file name
+- So in one file we can have n non public classes.
+- If one file(X.java) has 3 classes e.g:
+
+Class X{} class Y{} class Z{}
+After Compile it will create 3 byte codes
+X.class, Y.class, Z.class
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
