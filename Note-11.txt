@@ -21,6 +21,9 @@ Customer has a Dog
 Dog has a Collar
 Car has a Engine
 
+- Java provide single inheritance in case of classes(parent and child)
+- Java also provide multiple inheritance in case of Interfaces.
+
 
 1. In Development
 One class one file
@@ -32,6 +35,19 @@ One class one file
 Class X{} class Y{} class Z{}
 After Compile it will create 3 byte codes
 X.class, Y.class, Z.class
+
+Inheritance- Parent Child Relationship
+by using extends keyword
+Benefits: Code Reuse
+
+Overriding:
+
+When Parent Feature is outdated so we override the parent feature in a Child class.
+Overriding hide the parent feature.
+1. Must be inheritance
+2. Method Signature must be same
+void roi(), same child has same void roi()
+
 
 
 
