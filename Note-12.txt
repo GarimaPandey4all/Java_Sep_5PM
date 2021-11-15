@@ -1,0 +1,22 @@
+Final Keyword:
+
+- If a variable is declared with the final keyword, its value can't be changed once initialized.
+
+
+pi = 22/7 = 3.14 = constant = fixed value
+
+- A method, declared with the final keyword, can't be overridden or hidden by subclasses.
+
+- A class declared as a final class, can't be subclassed.
+
+
+finalize() method
+
+- Finalize is used to perform clean up processing just before object is garbage collected.
+
+Casting:
+object typecasting
+1. Upcasting
+- child object typecasted to a parent class object
+2. Downcasting
+- parent class object typecasting into a child class object (Explicitly)
