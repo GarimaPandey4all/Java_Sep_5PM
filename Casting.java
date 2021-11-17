@@ -23,8 +23,19 @@ public class Casting {
 		//child object typecasted into parent object
 		
 		//Upcasting
-		Parent obj = (Parent)new Child();
-		obj.display();
+//		Parent obj = (Parent)new Child();
+//		obj.display();
+		
+		//downcasting
+		
+		//parent object typecasted into child object
+		
+		//Child c = new Parent(); // Compile Time error
+		
+		Parent p = new Child();
+		Child c = (Child)p;
+		
+		c.display();
 		
 	}
 }

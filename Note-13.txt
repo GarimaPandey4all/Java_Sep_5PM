@@ -1,0 +1,13 @@
+Abstract
+
+- Abstract methods are methods can only be declared, not defined.
+- Abstract class can have abstract methods
+- You cannot create objects of abstract class
+
+Interfaces:
+
+Lika a class, an interface can have methods and variables, but the methods declared in
+interfaces are by default abstract(only method signature, no body).
+
+- It is used to acheive total abstraction
+- It is used to support multiple interfaces
