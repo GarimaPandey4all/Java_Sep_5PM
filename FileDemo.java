@@ -10,8 +10,7 @@ class MyFilter implements FilenameFilter {
 	public boolean accept(File dirPath, String fileName) {
 		// TODO Auto-generated method stub
 		return fileName.endsWith(".mp3");
-	}
-	
+	}	
 }
 
 public class FileDemo {
@@ -41,6 +40,7 @@ public class FileDemo {
 		
 		file = new File(path);
 		
+		//Make Directory/Folder/Package
 		//file.mkdir();
 		
 		file.mkdirs();
