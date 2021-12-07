@@ -8,7 +8,6 @@ public class LoanDetails {
 	private double roi;
 	private double loanPercentage;
 	
-	
 	public String getType() {
 		return type;
 	}

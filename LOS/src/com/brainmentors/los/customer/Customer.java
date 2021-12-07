@@ -3,13 +3,19 @@ package com.brainmentors.los.customer;
 public class Customer {
 	
 	private int id;
+	private int stage;
 	private PersonalInformation personal; // HAS - A Relationship
 	private Address address; // HAS - A Relationship
 	private double income;
 	private double liability;
-	private LoanDetails loanDetails;
+	private LoanDetails loanDetails; // HAS - A Relationship
 	
-	
+	public int getStage() {
+		return stage;
+	}
+	public void setStage(int stage) {
+		this.stage = stage;
+	}
 	public LoanDetails getLoanDetails() {
 		return loanDetails;
 	}
