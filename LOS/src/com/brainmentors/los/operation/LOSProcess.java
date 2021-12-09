@@ -3,6 +3,8 @@ package com.brainmentors.los.operation;
 import com.brainmentors.los.customer.Customer;
 import com.brainmentors.los.customer.LoanDetails;
 import com.brainmentors.los.customer.PersonalInformation;
+import com.brainmentors.los.utils.CommonConstants;
+import com.brainmentors.los.utils.LoanConstants;
 import com.brainmentors.los.utils.StageConstants;
 import com.brainmentors.los.utils.Utility;
 
@@ -11,9 +13,237 @@ import static com.brainmentors.los.utils.Utility.serialCounter;
 
 import java.util.ArrayList;
 
-public class LOSProcess implements StageConstants{
+public class LOSProcess implements StageConstants, CommonConstants{
 	
 	private ArrayList<Customer> customers = new ArrayList<Customer>();
+	
+	public void qde(Customer customer)
+	{
+		customer.setStage(QDE);
+		
+		System.out.println("Application Number "+customer.getId());
+		System.out.println("Name "+customer.getPersonal().getFirstName()+" "
+		+customer.getPersonal().getLastName());
+		System.out.println("You applied for a "+customer.getLoanDetails().getType()
+		+" Duration "+customer.getLoanDetails().getDuration()
+		+" Amount "+customer.getLoanDetails().getAmount());
+		
+		System.out.println("Enter Pan Card Number");
+		String panCard = scanner.next();
+		System.out.println("Enter the Voter Id");
+		String voterId = scanner.next();
+		System.out.println("Enter the Income");
+		double income = scanner.nextDouble();
+		System.out.println("Enter the Phone");
+		String phone = scanner.next();
+		System.out.println("Enter the Liability");
+		double liability = scanner.nextDouble();
+		System.out.println("Enter the Email");
+		String email = scanner.next();
+		
+		customer.getPersonal().setPanCard(panCard);
+		customer.getPersonal().setVoterId(voterId);
+		customer.getPersonal().setEmail(email);
+		customer.getPersonal().setPhone(phone);
+		customer.setIncome(income);
+		customer.setLiability(liability);
+	}
+	
+	public void moveToNextStage(Customer customer)
+	{
+		while(true)
+		{
+			if(customer.getStage() == SOURCING)
+			{
+				System.out.println("SOURCING, Want to Move to the Next Stage Y/N");
+				char choice = scanner.next().toUpperCase().charAt(0);
+				
+				if(choice == YES)
+				{
+					qde(customer);
+				}
+				else {
+					return;
+				}
+			}
+			
+			if(customer.getStage() == QDE)
+			{
+				System.out.println("QDE, Want to Move to the Next Stage Y/N");
+				char choice = scanner.next().toUpperCase().charAt(0);
+				
+				if(choice == YES)
+				{
+					dedupe(customer);
+				}
+				else {
+					return;
+				}
+			}
+			
+			if(customer.getStage() == DEDUPE)
+			{
+				System.out.println("DEDUPE, Want to Move to the Next Stage Y/N");
+				char choice = scanner.next().toUpperCase().charAt(0);
+				
+				if(choice == YES)
+				{
+					scoring(customer);
+				}
+				else {
+					return;
+				}
+			}
+			
+			if(customer.getStage() == SCORING)
+			{
+				System.out.println("SCORING, Want to Move to the Next Stage Y/N");
+				char choice = scanner.next().toUpperCase().charAt(0);
+				
+				if(choice == YES)
+				{
+					approval(customer);
+				}
+				else {
+					return;
+				}
+			}
+		}
+	}
+	
+	public void approval(Customer customer)
+	{
+		customer.setStage(APPROVAL);
+		
+		int score = customer.getLoanDetails().getScore();
+		System.out.println(" Id "+customer.getId());
+		System.out.println("Name is "+customer.getPersonal().getFirstName()
+				+" "+customer.getPersonal().getLastName());
+		
+		System.out.println("Loan "+customer.getLoanDetails().getType()
+				+" Amount "+customer.getLoanDetails().getAmount()
+				+" Duration "+customer.getLoanDetails().getDuration());
+		
+		//double approveAmount = customer.getLoanDetails().getAmount() * (score /100);
+		
+		System.out.println("Loan Approved Amount is "+customer.getLoanDetails().getAmount());
+		System.out.println("Do you want to bring this loan or not");
+		char choice = scanner.next().toUpperCase().charAt(0);
+		
+		if(choice == NO)
+		{
+			customer.setStage(REJECT);
+			customer.setRemarks("Customer Deny the Approved Amount "
+			+customer.getLoanDetails().getAmount());
+			return;
+		}
+		else {
+			showEMI(customer);
+		}
+		
+	}
+	
+	private void showEMI(Customer customer)
+	{
+		if(customer.getLoanDetails().getType() == LoanConstants.HOME_LOAN)
+		{
+			customer.getLoanDetails().setRoi(LoanConstants.HOME_LOAN_ROI);
+		}
+		if(customer.getLoanDetails().getType() == LoanConstants.AUTO_LOAN)
+		{
+			customer.getLoanDetails().setRoi(LoanConstants.AUTO_LOAN_ROI);
+		}
+		if(customer.getLoanDetails().getType() == LoanConstants.PERSONAL_LOAN)
+		{
+			customer.getLoanDetails().setRoi(LoanConstants.PERSONAL_LOAN_ROI);
+		}
+		
+		double perMonthPrinciple = customer.getLoanDetails().getAmount() / customer.getLoanDetails().getDuration();
+		double interest = perMonthPrinciple * customer.getLoanDetails().getRoi();
+		
+		double totalEMI = perMonthPrinciple + interest;
+		
+		System.out.println("Your EMI is "+totalEMI);			
+	}
+	
+	public void scoring(Customer customer)
+	{
+		customer.setStage(SCORING);
+		
+		int score = 0;
+		double totalIncome = customer.getIncome() - customer.getLiability();
+		
+		if(customer.getPersonal().getAge() >= 21 && customer.getPersonal().getAge() <= 35)
+		{
+			score += 50;
+		}
+		
+		if(totalIncome >= 20000)
+		{
+			score += 50;
+		}
+		
+		customer.getLoanDetails().setScore(score);
+	}
+	
+	public void dedupe(Customer customer)
+	{
+		customer.setStage(DEDUPE);
+		
+		boolean isNegativeFound = false;
+		for(Customer negativeCustomer : DB.getNegativeCustomers())
+		{
+			int negativeScore = isNegative(customer, negativeCustomer);
+			if(negativeScore > 0)
+			{
+				System.out.println("Customer Record Fraud in Dedupe and Score is "+negativeScore);
+				isNegativeFound = true;
+				break;
+			}
+		}
+		
+		if(!isNegativeFound)
+		{
+			System.out.println("Do you want to Proceed this Loan "+customer.getId());
+			char choice = scanner.next().toUpperCase().charAt(0);
+			
+			if(choice == NO)
+			{
+				customer.setRemarks("Loan is Rejected, Due to high score in Dedupe Check");
+				customer.setStage(REJECT);
+				return;
+			}
+		}
+	}
+	
+	private int isNegative(Customer customer, Customer negative)
+	{
+		int percentageMatch = 0;
+		
+		if(customer.getPersonal().getPhone().equals(negative.getPersonal().getPhone()))
+		{
+			percentageMatch += 20;
+		}
+		if(customer.getPersonal().getEmail().equals(negative.getPersonal().getEmail()))
+		{
+			percentageMatch += 20;
+		}
+		if(customer.getPersonal().getVoterId().equals(negative.getPersonal().getVoterId()))
+		{
+			percentageMatch += 20;
+		}
+		if(customer.getPersonal().getPanCard().equals(negative.getPersonal().getPanCard()))
+		{
+			percentageMatch += 20;
+		}
+		if(customer.getPersonal().getAge()==negative.getPersonal().getAge() 
+				&& customer.getPersonal().getFirstName().equals(negative.getPersonal().getFirstName()))
+		{
+			percentageMatch += 20;
+		}		
+
+		return percentageMatch;
+	}
 	
 	public void sourcing()
 	{
@@ -65,6 +295,7 @@ public class LOSProcess implements StageConstants{
 				{
 					System.out.println("You are on "+ Utility.getStageName(customer.getStage()));
 					isStageFound = true;
+					moveToNextStage(customer);
 					break;
 				}
 			}
